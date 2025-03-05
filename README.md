@@ -1,6 +1,4 @@
 # LIFT-front
 Front end for LIFT app
 
-
-
-jjjjjjjjjjjjjjjjjjjjjjjjjjjjj
+I don't like committing things
