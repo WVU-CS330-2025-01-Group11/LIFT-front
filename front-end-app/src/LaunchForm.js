@@ -1,0 +1,61 @@
+import {useState} from 'react';
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
+
+function LaunchForm() {
+
+    const submitForm = (e) => {
+        e.preventDefault();
+
+        const form_data = new FormData(e.target);
+        const payload = Object.fromEntries(form_data);
+
+        console.log(payload);
+
+    }
+
+    return (
+        <>
+            <h2>New Launch</h2>
+            <form onSubmit={submitForm}> 
+                <Form.Group classname="mb-3">
+                    <Form.Label>Launch Name</Form.Label>
+                    <Form.Control name="l_name" type="text" placeholder="Enter launch name" />
+                </Form.Group>
+                <Form.Group classname="mb-3">
+                    <Form.Label>Launch Date</Form.Label>
+                    <Form.Control type="date" name="l_date" />
+                </Form.Group>
+                <Form.Group classname="mb-3">
+                    <Form.Label>Launch Time</Form.Label>
+                    <Form.Control type="time" name="l_time" />
+                </Form.Group>
+                <Form.Group classname="mb-3">
+                    <Form.Label>Launch Location</Form.Label>
+                    <Form.Control type="text" name="l_loc" placeholder="Enter launch location" />
+                </Form.Group>
+                <Form.Group classname="mb-3">
+                    <Form.Label>Target Altitude</Form.Label>
+                    <Form.Control type="number" name="l_altitude" placeholder="Enter target altitude" />
+                </Form.Group>
+                <Form.Group classname="mb-3">
+                    <Form.Label>Desired Temperature</Form.Label>
+                    <Form.Control type="number" name="l_temp" placeholder="Enter desired temperature" />
+                </Form.Group>
+                <Form.Group classname="mb-3">
+                    <Form.Label>Rocket Weight</Form.Label>
+                    <Form.Control type="number" name = "l_weight" placeholder="Enter rocket weight" />
+                </Form.Group>
+
+                <Button variant="primary" type="submit">
+                    Submit
+                </Button>
+   
+            </form>        
+        </>
+
+    )
+
+}
+
+export default LaunchForm;
