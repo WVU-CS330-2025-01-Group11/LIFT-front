@@ -1,0 +1,48 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  .header {
+    /*Displays header on the top of the screen*/
+    background-color: whitesmoke;
+    border: 1px solid black;
+    text-align: center;
+    padding: 20px 0;
+    width: 100vw;
+    height: 10vh;
+    justify-content: center;
+    align-items: center;
+  }
+  .newlaunch {
+    /*Displays the box on the left*/
+    background-color: whitesmoke;
+    width: 40vw;
+    height: 65vh;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    border: 1px solid black;
+    border-radius: 5px;
+    margin-top: 5vh;
+    float: left;
+    margin-left: 5vw;
+    margin-right: 5vw;
+  }
+
+  .launchsites {
+    /*Displays the box on the right*/
+    background-color: whitesmoke;
+    width: 40vw;
+    height: 65vh;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    border: 1px solid black;
+    border-radius: 5px;
+    margin-top: 5vh;
+    float: left;
+    margin-left: 5vw;
+    margin-right: 5vw;
+  } 
