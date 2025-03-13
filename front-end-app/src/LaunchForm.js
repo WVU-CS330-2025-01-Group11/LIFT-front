@@ -1,4 +1,3 @@
-import {useState} from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 
@@ -9,6 +8,20 @@ function LaunchForm() {
 
         const form_data = new FormData(e.target);
         const payload = Object.fromEntries(form_data);
+
+        let base_url = 'http://localhost:3000/';
+        let url = base_url;
+        fetch(url, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(payload)
+        }).then(data => console.log(data))
+        .catch((error) => {
+            console.error('Error:', error);
+        }
+        );
 
         console.log(payload);
 
