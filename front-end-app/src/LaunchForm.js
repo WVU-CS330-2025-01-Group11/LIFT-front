@@ -3,6 +3,10 @@ import Form from 'react-bootstrap/Form';
 
 function LaunchForm() {
 
+    const local_save_data = (data) => {
+        localStorage.setItem('launch_data', JSON.stringify(data));
+    }
+
     const submitForm = (e) => {
         e.preventDefault();
 
@@ -24,6 +28,7 @@ function LaunchForm() {
         );
 
         console.log(payload);
+        local_save_data(payload);
 
     }
 
@@ -65,6 +70,9 @@ function LaunchForm() {
                 </Button>
    
             </form>
+
+            
+
         </>
 
     )
