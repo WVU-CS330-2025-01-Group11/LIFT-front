@@ -4,7 +4,13 @@ import Form from 'react-bootstrap/Form';
 function LaunchForm() {
 
     const local_save_data = (data) => {
-        localStorage.setItem('launch_data', JSON.stringify(data));
+        if (localStorage.getItem('saved_launches')) {
+            let launch_list = JSON.parse(localStorage.getItem('saved_launches'));
+            launch_list.push(data);
+            localStorage.setItem('saved_launches', JSON.stringify(launch_list));
+        } else {
+            localStorage.setItem('saved_launches', JSON.stringify([data]));
+        }
     }
 
     const submitForm = (e) => {
