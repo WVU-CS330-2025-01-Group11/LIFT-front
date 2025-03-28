@@ -1,5 +1,6 @@
 import React from "react";
 import LaunchForm from "./LaunchForm";
+import LiftTabs from './LiftTabs';
 import './style.css';
 
 function Homepage(){
@@ -10,13 +11,12 @@ function Homepage(){
                 
                 <h1>HomeBar: in progress...</h1>
             </div>
+            <div className="main-content">
             <div className="newlaunch">
                 
                 <LaunchForm />
             </div>
-            <div className="launchsites" >
-                
-                <h1>Tabs: In progress...</h1>
+                <LiftTabs /> 
             </div>
         </>
     );
