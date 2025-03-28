@@ -4,3 +4,5 @@
 
 /.vs
 front-end-app/package-lock.json
+front-end-app/package-lock.json
+.DS_Store
