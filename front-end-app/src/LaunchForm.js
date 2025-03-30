@@ -1,9 +1,8 @@
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 
-function LaunchForm() {
-
-    const local_save_data = (data) => {
+function LaunchForm({setLoadedLaunches}) {
+    const save_locally = (data) => {
         if (localStorage.getItem('saved_launches')) {
             let launch_list = JSON.parse(localStorage.getItem('saved_launches'));
             launch_list.push(data);
@@ -11,6 +10,8 @@ function LaunchForm() {
         } else {
             localStorage.setItem('saved_launches', JSON.stringify([data]));
         }
+
+        setLoadedLaunches(JSON.parse(localStorage.getItem('saved_launches')));
     }
 
     const submitForm = (e) => {
@@ -34,7 +35,7 @@ function LaunchForm() {
         );
 
         console.log(payload);
-        local_save_data(payload);
+        save_locally(payload);
 
     }
 

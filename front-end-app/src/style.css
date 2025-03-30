@@ -15,28 +15,12 @@
     justify-content: center;
     align-items: center;
   }
-  .newlaunch {
-    /*Displays the box on the left*/
-    background-color: whitesmoke;
-    width: 40vw;
-    height: 65vh;
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    border: 1px solid black;
-    border-radius: 5px;
-    margin-top: 5vh;
-    float: left;
-    margin-left: 5vw;
-    margin-right: 5vw;
-  }
 
   .launchsites {
     /*Displays the box on the right*/
     background-color: whitesmoke;
     width: 40vw;
     height: 65vh;
-    display: flex;
     justify-content: center;
     text-align: center;
     border: 1px solid black;
@@ -46,3 +30,18 @@
     margin-left: 5vw;
     margin-right: 5vw;
   } 
+
+.panel {
+    /* Shared styles for all panels */
+    background-color: whitesmoke;
+    width: 40vw;
+    height: 65vh;
+    justify-content: center;
+    text-align: center;
+    border: 1px solid black;
+    border-radius: 5px;
+    margin-top: 5vh;
+    float: left;
+    margin-left: 5vw;
+    margin-right: 5vw;
+}
