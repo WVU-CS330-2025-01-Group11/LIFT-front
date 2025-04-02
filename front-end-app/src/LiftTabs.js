@@ -6,7 +6,7 @@ import './style.css';
 import SavedLaunches from "./SavedLaunches";
 
 
-const LiftTabs = ({ setActiveTab, setLaunchIndex, loadedLaunches }) => {
+const LiftTabs = ({ setActiveTab, setLaunchIndex, loadedLaunches, setAutofillData }) => {
   console.log("Loaded launches (LiftTabs):", loadedLaunches);
   return (
     <div className="launchsites">
@@ -31,7 +31,9 @@ const LiftTabs = ({ setActiveTab, setLaunchIndex, loadedLaunches }) => {
             <SavedLaunches
              setLaunchIndex={setLaunchIndex}
              setActiveTab={setActiveTab}
-             loadedLaunches={loadedLaunches}/>
+             loadedLaunches={loadedLaunches}
+             setAutofillData={setAutofillData}
+             />
         </TabPanel>
 
       </Tabs>

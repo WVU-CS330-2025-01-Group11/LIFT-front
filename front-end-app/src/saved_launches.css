@@ -17,10 +17,25 @@
     padding: 8px;
     margin-bottom: 5px;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
+    position: relative;
 }
 
 /* Hover effect */
 .saved-launch:hover {
     transform: scale(1.02);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+.edit-button:hover::after {
+    content: 'Edit';
+    position: absolute;
+    top: 50%;
+    right: 110%; /* Adjust as needed to position the tooltip */
+    transform: translate(-10px, -50%);
+    background: rgba(0, 0, 0, 0.75);
+    color: #fff;
+    padding: 4px 8px;
+    font-size: 14px;
+    border-radius: 4px;
+    white-space: nowrap;
+    z-index: 100;
 }

@@ -45,3 +45,72 @@
     margin-left: 5vw;
     margin-right: 5vw;
 }
+
+.edit-button {
+  position: absolute;
+  right: 10px; /* Adjust spacing from the right as needed */
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 24px; /* Adjust size as needed */
+  padding: 5px;
+  color: #333;
+  line-height: 1;
+}
+
+.edit-button:hover {
+  color: #555;
+}
+
+.edit-button:focus {
+  outline: none;
+}
+
+/* Display the vertical three-dots icon */
+.edit-button::before {
+  content: '\22EE'; /* Unicode character for vertical ellipsis */
+}
+
+.delete-button {
+  position: absolute;
+  right: 10px;
+  top: calc(50% + 40px); /* Adjust spacing between the edit and delete buttons */
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 24px; /* Adjust size as needed */
+  padding: 5px;
+  color: #333;
+  line-height: 1;
+}
+
+.delete-button:hover {
+  color: #555;
+}
+
+.delete-button:focus {
+  outline: none;
+}
+
+/* Display an icon for the delete button - using Unicode trash can icon */
+.delete-button::before {
+  content: '\1F5D1'; /* Unicode for a trash can icon; may vary by platform */
+}
+
+/* Tooltip for delete button on hover */
+.delete-button:hover::after {
+  content: 'Delete';
+  position: absolute;
+  top: 50%;
+  right: 110%; /* Adjust as needed to position the tooltip */
+  transform: translate(-10px, -50%);
+  background: rgba(0, 0, 0, 0.75);
+  color: #fff;
+  padding: 4px 8px;
+  font-size: 14px;
+  border-radius: 4px;
+  white-space: nowrap;
+  z-index: 100;
+}
