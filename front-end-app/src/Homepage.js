@@ -11,6 +11,7 @@ function Homepage() {
     const [activeTab, setActiveTab] = React.useState("new_launch");
     const [launchIndex, setLaunchIndex] = React.useState(0);
     const [loadedLaunches, setLoadedLaunches] = React.useState([]);
+    const [autofillData, setAutofillData] = React.useState(null);
 
     // Load saved launches on component mount
     React.useEffect(() => {
@@ -32,7 +33,10 @@ function Homepage() {
                 {
                 activeTab === "new_launch" && (
                     <div className="panel">
-                        <LaunchForm setLoadedLaunches={setLoadedLaunches} />
+                        <LaunchForm
+                         setLoadedLaunches={setLoadedLaunches}
+                         autofillData={autofillData}
+                         setAutofillData={setAutofillData} />
                     </div>
                 )}
 
@@ -40,7 +44,13 @@ function Homepage() {
                 activeTab === "launch_inspection" && (
                     <div className="panel">
                         <h2>Saved Launches</h2>
-                        <LaunchInspection launchIndex={launchIndex} saved_launches={loadedLaunches} />
+                        <LaunchInspection 
+                         launchIndex={launchIndex}
+                         saved_launches={loadedLaunches}
+                         setLoadedLaunches={setLoadedLaunches} 
+                         setActiveTab={setActiveTab}
+                         setAutofillData={setAutofillData}  // pass the setter
+                         />
                     </div>
                 )}
 
@@ -56,7 +66,9 @@ function Homepage() {
                     <LiftTabs 
                      setActiveTab={setActiveTab}
                      setLaunchIndex={setLaunchIndex}
-                     loadedLaunches = {loadedLaunches} />
+                     loadedLaunches = {loadedLaunches}
+                     setAutofillData = {setAutofillData}
+                     />
                 </div>
 
             </div>

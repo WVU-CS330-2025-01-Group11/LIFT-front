@@ -2,7 +2,26 @@ import React from 'react';
 import 'react-tabs/style/react-tabs.css';
 import './style.css';
 
-const LaunchInspection = ({ launchIndex, saved_launches }) => {
+
+function deleteButton({ index, setLoadedLaunches, setActiveTab }) {
+    console.log("Delete button clicked");
+
+    // Remove the selected launch from the saved launches
+    
+    const savedLaunches = JSON.parse(localStorage.getItem('saved_launches')) || [];
+    savedLaunches.splice(index, 1);
+    localStorage.setItem('saved_launches', JSON.stringify(savedLaunches));
+    console.log("Launch deleted:", index);
+    // Update the state to reflect the deletion
+    setLoadedLaunches(savedLaunches);
+    console.log("Updated saved launches:", savedLaunches);
+
+    //switch back to the launch form
+    setActiveTab("new_launch");
+
+}
+
+const LaunchInspection = ({ launchIndex, saved_launches, setLoadedLaunches, setActiveTab, setAutofillData }) => {
     // Ensure the selected launch exists
     if (!saved_launches || launchIndex < 0 || launchIndex >= saved_launches.length) {
         return (
@@ -32,6 +51,20 @@ const LaunchInspection = ({ launchIndex, saved_launches }) => {
                     <p>Altitude: {launch.altitude}</p>
                     <p>Temperature: {launch.temp}</p>
                     <p>Rocket Weight: {launch.weight}</p>
+
+                    <button 
+                      className="edit-button" 
+                      onClick={() => {
+                         console.log("Edit launch", launchIndex);
+                         setAutofillData(launch); // update autofill data
+                         setActiveTab("new_launch"); // switch to launch form
+                      }} 
+                    />
+                    <button 
+                     className="delete-button" 
+                     onClick={() => deleteButton({ index: launchIndex, setLoadedLaunches, setActiveTab })} 
+                    />
+
                 </div>
             ) : (
                 // Render a fallback message if no launches are available
