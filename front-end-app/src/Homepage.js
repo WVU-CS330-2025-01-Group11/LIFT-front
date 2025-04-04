@@ -3,12 +3,14 @@ import LaunchForm from "./LaunchForm";
 import LiftTabs from './LiftTabs';
 import './style.css';
 import LaunchInspection from "./LaunchInspection";
+import SiteInspection from "./SiteInspection";
 
 function Homepage() {
     const [activeTab, setActiveTab] = React.useState("new_launch");
     const [launchIndex, setLaunchIndex] = React.useState(0);
     const [loadedLaunches, setLoadedLaunches] = React.useState([]);
     const [autofillData, setAutofillData] = React.useState(null);
+    const [selectedSite, setSelectedSite] = React.useState(null);
 
     // Load saved launches on component mount
     React.useEffect(() => {
@@ -56,7 +58,8 @@ function Homepage() {
                 activeTab === "sites_inspection" && (
                     <div className="panel">
                         <h2>Sites Inspection</h2>
-                        <p>Under construction...</p>
+                        <SiteInspection
+                         site={selectedSite} />
                     </div>
                 )}
 
@@ -66,6 +69,7 @@ function Homepage() {
                      setLaunchIndex={setLaunchIndex}
                      loadedLaunches = {loadedLaunches}
                      setAutofillData = {setAutofillData}
+                        setSelectedSite={setSelectedSite}
                      />
                 </div>
 

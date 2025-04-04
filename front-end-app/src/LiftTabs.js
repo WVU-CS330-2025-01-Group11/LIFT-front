@@ -4,9 +4,10 @@ import 'react-tabs/style/react-tabs.css';
 import './style.css';
 
 import SavedLaunches from "./SavedLaunches";
+import SavedSites from "./SavedSites";
 
 
-const LiftTabs = ({ setActiveTab, setLaunchIndex, loadedLaunches, setAutofillData }) => {
+const LiftTabs = ({ setActiveTab, setLaunchIndex, loadedLaunches, setAutofillData, setSelectedSite }) => {
   console.log("Loaded launches (LiftTabs):", loadedLaunches);
   return (
     <div className="launchsites">
@@ -24,7 +25,11 @@ const LiftTabs = ({ setActiveTab, setLaunchIndex, loadedLaunches, setAutofillDat
         </TabList>
 
         <TabPanel>
-          <p>Add Launch Sites</p>
+          <SavedSites
+            setLaunchIndex={setLaunchIndex}
+            setActiveTab={setActiveTab}
+            setSelectedSite={setSelectedSite}
+          />
         </TabPanel>
 
         <TabPanel>

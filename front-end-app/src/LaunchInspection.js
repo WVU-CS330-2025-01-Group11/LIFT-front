@@ -2,7 +2,6 @@ import React from 'react';
 import 'react-tabs/style/react-tabs.css';
 import './style.css';
 
-
 function deleteButton({ index, setLoadedLaunches, setActiveTab }) {
     console.log("Delete button clicked");
 
