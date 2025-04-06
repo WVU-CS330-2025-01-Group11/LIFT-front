@@ -1,0 +1,42 @@
+<!--this is completely temporary and will be replaced later. It is just to prove functionality for now-->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>API Test</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        button { padding: 10px 15px; background: #007bff; color: white; border: none; cursor: pointer; }
+        button:hover { background: #0056b3; }
+        #output { margin-top: 20px; padding: 15px; border: 1px solid #ddd; white-space: pre-wrap; }
+    </style>
+</head>
+<body>
+    <h1>Weather API Test</h1>
+    <button id="fetchForecast" onclick="fetchData()">Get NJ Forecast</button>
+    <div id="output">Click the button to test API connection...</div>
+
+    <script>
+        async function fetchData() {
+            const output = document.getElementById('output');
+            output.textContent = "Testing connection...";
+            
+            try {
+                // Directly call the working endpoint (no need for preliminary test)
+                const response = await fetch('http://localhost:5000/api/forecast?location=08540');
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                
+                const data = await response.json();
+                output.textContent = JSON.stringify(data, null, 2);
+            } catch (error) {
+                output.textContent = `Error: ${error.message}\n\n` +
+                                    `Successful curl command:\n` +
+                                    `curl "http://localhost:5000/api/forecast?location=08540"`;
+                console.error('Full error:', error);
+            }
+        }
+    </script>
+</body>
+</html>
