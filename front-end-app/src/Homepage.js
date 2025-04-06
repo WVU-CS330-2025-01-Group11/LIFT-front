@@ -4,6 +4,7 @@ import LiftTabs from './LiftTabs';
 //File imports
 import LaunchForm from "./LaunchForm";
 import LaunchInspection from "./LaunchInspection";
+import SiteInspection from "./SiteInspection";
 import Navbar from "./Navbar";
 import './style.css';
 
