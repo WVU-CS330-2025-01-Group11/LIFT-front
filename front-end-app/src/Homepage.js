@@ -1,9 +1,11 @@
+//React Imports
 import React from "react";
-import LaunchForm from "./LaunchForm";
 import LiftTabs from './LiftTabs';
-import './style.css';
+//File imports
+import LaunchForm from "./LaunchForm";
 import LaunchInspection from "./LaunchInspection";
-import SiteInspection from "./SiteInspection";
+import Navbar from "./Navbar";
+import './style.css';
 
 function Homepage() {
     const [activeTab, setActiveTab] = React.useState("new_launch");
@@ -25,9 +27,8 @@ function Homepage() {
 
     return (
         <>
-            <div className="header" background-color="red">
-                <h1>HomeBar: in progress...</h1>
-            </div>
+            
+            <Navbar />
             <div className="main-content">
 
                 {
