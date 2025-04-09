@@ -3,6 +3,8 @@ import 'react-tabs/style/react-tabs.css';
 import './style.css';
 import './saved_launches.css';
 
+import { GlobalContext } from './GlobalState.js';
+
 function card_click(index, setLaunchIndex, setActiveTab) {
     // Handle the click event for the card
     console.log("Card clicked:", index);
@@ -17,7 +19,8 @@ function switch_to_launch_form(setActiveTab, setAutofillData) {
     setActiveTab("new_launch");   
 }
 
-const SavedLaunches = ({ setLaunchIndex, setActiveTab, loadedLaunches, setAutofillData }) => {
+const SavedLaunches = () => {
+    const { setLaunchIndex, setActiveTab, loadedLaunches, setAutofillData } = React.useContext(GlobalContext);
     console.log("Loaded launches:", loadedLaunches);
     
     return (
