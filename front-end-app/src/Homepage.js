@@ -1,5 +1,5 @@
 //React Imports
-import React from "react";
+import React, { useContext } from "react";
 import LiftTabs from './LiftTabs';
 //File imports
 import LaunchForm from "./LaunchForm";
@@ -7,38 +7,31 @@ import LaunchInspection from "./LaunchInspection";
 import SiteInspection from "./SiteInspection";
 import Navbar from "./Navbar";
 import './style.css';
+import { GlobalContext } from "./GlobalState";
 
 function Homepage() {
-    const [activeTab, setActiveTab] = React.useState("new_launch");
-    const [launchIndex, setLaunchIndex] = React.useState(0);
-    const [loadedLaunches, setLoadedLaunches] = React.useState([]);
-    const [autofillData, setAutofillData] = React.useState(null);
-    const [selectedSite, setSelectedSite] = React.useState(null);
-
-    // Load saved launches on component mount
-    React.useEffect(() => {
-        const saved = localStorage.getItem('saved_launches');
-        if (saved) {
-            console.log("Saved launches from localStorage:", JSON.parse(saved));
-            setLoadedLaunches(JSON.parse(saved));
-        }
-    }, []);
-    console.log("Loaded launches:", loadedLaunches);
-
+    const {
+        activeTab,
+        setActiveTab,
+        launchIndex,
+        loadedLaunches,
+        autofillData,
+        setAutofillData,
+        selectedSite,
+        setSelectedSite,
+    } = useContext(GlobalContext);
 
     return (
         <>
-            
+            {console.log("Active Tab:", activeTab)}
+            {console.log("Launch Index:", launchIndex)}
             <Navbar />
             <div className="main-content">
 
                 {
                 activeTab === "new_launch" && (
                     <div className="panel">
-                        <LaunchForm
-                         setLoadedLaunches={setLoadedLaunches}
-                         autofillData={autofillData}
-                         setAutofillData={setAutofillData} />
+                        <LaunchForm />
                     </div>
                 )}
 
@@ -46,13 +39,7 @@ function Homepage() {
                 activeTab === "launch_inspection" && (
                     <div className="panel">
                         <h2>Saved Launches</h2>
-                        <LaunchInspection 
-                         launchIndex={launchIndex}
-                         saved_launches={loadedLaunches}
-                         setLoadedLaunches={setLoadedLaunches} 
-                         setActiveTab={setActiveTab}
-                         setAutofillData={setAutofillData}  // pass the setter
-                         />
+                        <LaunchInspection />
                     </div>
                 )}
 
@@ -66,13 +53,7 @@ function Homepage() {
                 )}
 
                 <div className="tabs">
-                    <LiftTabs 
-                     setActiveTab={setActiveTab}
-                     setLaunchIndex={setLaunchIndex}
-                     loadedLaunches = {loadedLaunches}
-                     setAutofillData = {setAutofillData}
-                        setSelectedSite={setSelectedSite}
-                     />
+                    <LiftTabs />
                 </div>
 
             </div>

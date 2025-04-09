@@ -4,8 +4,6 @@ import './style.css';
 
 
 const SiteInspection = ({ site }) => {
-
-
     return (
         <>
             {

@@ -2,13 +2,14 @@ import React from 'react';
 import { Tabs, Tab, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 import './style.css';
+import { GlobalContext } from './GlobalState.js';
 
 import SavedLaunches from "./SavedLaunches";
 import SavedSites from "./SavedSites";
 
 
-const LiftTabs = ({ setActiveTab, setLaunchIndex, loadedLaunches, setAutofillData, setSelectedSite }) => {
-  console.log("Loaded launches (LiftTabs):", loadedLaunches);
+const LiftTabs = () => {
+  const { activeTab, setActiveTab } = React.useContext(GlobalContext);
   return (
     <div className="launchsites">
       <Tabs
@@ -25,20 +26,11 @@ const LiftTabs = ({ setActiveTab, setLaunchIndex, loadedLaunches, setAutofillDat
         </TabList>
 
         <TabPanel>
-          <SavedSites
-            setLaunchIndex={setLaunchIndex}
-            setActiveTab={setActiveTab}
-            setSelectedSite={setSelectedSite}
-          />
+          <SavedSites />
         </TabPanel>
 
         <TabPanel>
-            <SavedLaunches
-             setLaunchIndex={setLaunchIndex}
-             setActiveTab={setActiveTab}
-             loadedLaunches={loadedLaunches}
-             setAutofillData={setAutofillData}
-             />
+            <SavedLaunches />
         </TabPanel>
 
       </Tabs>

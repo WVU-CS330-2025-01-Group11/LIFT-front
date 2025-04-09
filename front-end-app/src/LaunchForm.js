@@ -1,8 +1,14 @@
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import React from 'react';
+import { GlobalContext } from './GlobalState';
 
-function LaunchForm({ setLoadedLaunches, autofillData, setAutofillData }) {
+function LaunchForm() {
+    const { loadedLaunches,
+         setLoadedLaunches,
+          autofillData,
+           setAutofillData } = React.useContext(GlobalContext);
+    console.log("Loaded launches (LaunchForm):", loadedLaunches);
     const save_locally = (data) => {
         if (localStorage.getItem('saved_launches')) {
             let launch_list = JSON.parse(localStorage.getItem('saved_launches'));
