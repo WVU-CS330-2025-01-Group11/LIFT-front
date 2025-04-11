@@ -6,8 +6,10 @@ function App() {
             <Navbar />
             <h1>Welcome to LIFT!</h1>
             <p>LIFT is an all in one assistant for aviation and rocket enthusiasts alike. It is an all in one
-            dynamic </p>
-            <img src="https://th.bing.com/th/id/OIP.5A6Y6qHEZdpIePgSTVadnwHaJ4?w=186&h=248&c=7&r=0&o=5&pid=1.7" width="300"></img>
+                dynamic launch assistant that ranks launch sites by user preferences and weather conditions.</p>
+
+            <h2>About Us</h2>
+            <h2>Educational Links</h2>
         </div>
     );
 }

@@ -4,8 +4,11 @@ function Tutorial() {
     return (
         <div>
             <Navbar />
-            
-            <img src="https://th.bing.com/th/id/OIP.5A6Y6qHEZdpIePgSTVadnwHaJ4?w=186&h=248&c=7&r=0&o=5&pid=1.7" width="300"></img>
+            <h1>Tutorial</h1>
+            <p>Welcome to LIFT an all in one assistant for rocket and aviation enthusiasts alike.</p>
+            <h2>Getting Started</h2>
+            <p>To begin, go to the LIFT homepage and click the icon to go to the homescreen</p>
+            <p>Enter the name of your launch with all the respective </p>
         </div>
     );
 }
