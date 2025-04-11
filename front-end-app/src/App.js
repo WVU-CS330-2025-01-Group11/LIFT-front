@@ -1,17 +1,25 @@
 import React from 'react';
-import Homepage from './Homepage.js';
-import './style.css';
-
-import { GlobalProvider } from './GlobalState.js';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'; // Import Router components
+import Homepage from './Homepage'; // Import your homepage
+import ContactUs from './ContactUs'; // Import your Contact Us page
+import Tutorial from './Tutorial';
+import About from './About';
+import './style.css'; // Import your CSS
+import { GlobalProvider } from './GlobalState'; // Import your global context provider
 
 function App() {
-  return (
-    <>
-    <GlobalProvider>
-     <Homepage />
-    </GlobalProvider>
-    </>
-  );
+    return (
+        <GlobalProvider>
+            <Router>
+                <Routes>
+                    <Route path="/" element={<Homepage />} />
+                    <Route path="/ContactUs" element={<ContactUs />} />
+                    <Route path="/Tutorial" element={<Tutorial />} />
+                    <Route path="/About" element={<About />} />
+                </Routes>
+            </Router>
+        </GlobalProvider>
+    );
 }
 
 export default App;
