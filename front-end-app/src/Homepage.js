@@ -8,6 +8,7 @@ import SiteInspection from "./SiteInspection";
 import Navbar from "./Navbar";
 import './style.css';
 import { GlobalContext } from "./GlobalState";
+import RankPopUp from "./RankPopUp";
 
 function Homepage() {
     const {
@@ -40,6 +41,10 @@ function Homepage() {
                     <div className="panel">
                         <h2>Saved Launches</h2>
                         <LaunchInspection />
+                        <RankPopUp
+                        launchIndex={launchIndex}
+                        loadedLaunches={loadedLaunches}
+                        />
                     </div>
                 )}
 
