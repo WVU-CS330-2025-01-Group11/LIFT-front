@@ -1,11 +1,11 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'; // Import Router components
-import Homepage from './Homepage'; // Import your homepage
-import ContactUs from './ContactUs'; // Import your Contact Us page
+import Homepage from './Homepage'; // Import homepage
+import ContactUs from './ContactUs'; // Import Contact Us page
 import Tutorial from './Tutorial';
 import About from './About';
-import './style.css'; // Import your CSS
-import { GlobalProvider } from './GlobalState'; // Import your global context provider
+import './style.css'; // Import CSS
+import { GlobalProvider } from './GlobalState'; // Import global context provider
 
 function App() {
     return (
